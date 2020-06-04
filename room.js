@@ -4,7 +4,7 @@ const Hoover = require('./hoover')
 
 function main() {
   const rl = readline.createInterface({
-    input: fs.createReadStream('text1.txt')
+    input: fs.createReadStream('input.txt')
   });
 
   let textFileLines = [];
