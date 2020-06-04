@@ -1,6 +1,6 @@
 ## Introduction
 
-You will write a program that navigates a imaginary robotic hoover through an equally imaginary room based on:
+This program navigates a imaginary robotic hoover through an equally imaginary room based on:
 
 * room dimensions as [X and Y coordinates](https://en.wikipedia.org/wiki/Cartesian_coordinate_system), identifying the top right corner of the room rectangle. This room is divided up in a grid based on these dimensions; a room that has dimensions X: 5 and Y: 5 has 5 columns and 5 rows, so 25 possible hoover positions. The bottom left corner is the point of origin for our coordinate system, so as the room contains all coordinates its bottom left corner is defined by X: 0 and Y: 0.
 * locations of patches of dirt, also defined by X and Y coordinates identifying the bottom left corner of those grid positions.
@@ -15,7 +15,7 @@ Driving into a wall has no effect (the robot skids in place).
 
 ## Input
 
-The file `input.txt` and resides in the root directory.
+The file `input.txt` resides in the root directory.
 
 Example:
 
@@ -49,10 +49,8 @@ Example (matching the input above):
 
 ## Instructions
 
-The program:
-
-* this is a terminal application 
-* this program is ran using NodeJS/Javascript
-* all files are located in the root folder
-* to test the program, edit the input.txt file
+* download this repo onto your computer
+* cd into folder from your terminal
+* to run program, in your terminal, run `node room.js` from the root directory
+* to change inputs, edit the `input.txt` file
 
