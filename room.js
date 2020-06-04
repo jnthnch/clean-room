@@ -4,7 +4,7 @@ const Hoover = require('./hoover')
 
 function main() {
   const rl = readline.createInterface({
-    input: fs.createReadStream('input.txt')
+    input: fs.createReadStream('text2.txt')
   });
 
   let textFileLines = [];
@@ -25,20 +25,16 @@ function main() {
     let width = parseInt(dimensions[1])
     const newRoom = new createRoom(length, width, dirtPositions, hooverStartPosition, hooverDrivingInstructions);
     let cleaned = newRoom.cleanTheRoom(newRoom.hooverMoves)
-    console.log('final pos', newRoom.hoover.currentPosition)
+    console.log('final position', newRoom.hoover.currentPosition.join(' '))
     console.log('cleaned', cleaned)
   })
 }
 
 function createRoom(width, height, dirtyPositions, hooverStartingPosition, hooverMoves) {
-  this.height = height;
-  this.width = width;
-  this.dirtyPositions = dirtyPositions;
-  this.spotsCleaned = new Map();
-  this.hoover = new Hoover(hooverStartingPosition, height, width);
-  this.hooverMoves = hooverMoves;
+  const spotsCleaned = new Map();
+  const hoover = Hoover(hooverStartingPosition, height, width);
 
-  this.convertDirtPositions = function (dirtPositions) {
+  const convertDirtPositions = function (dirtPositions) {
     let tracker = {};
     for (let i = 0; i < dirtPositions.length; i++) {
       let xCoord = dirtPositions[i][0]
@@ -52,24 +48,34 @@ function createRoom(width, height, dirtyPositions, hooverStartingPosition, hoove
     return tracker;
   }
 
-  this.dirtTracker = this.convertDirtPositions(dirtyPositions);
+  const dirtTracker = convertDirtPositions(dirtyPositions);
 
-  this.updateSpotsCleaned = function (position) {
+  const updateSpotsCleaned = (position) => {
     let xCoord = position[0];
     let yCoord = position[1];
 
-    if (this.dirtTracker[xCoord] && this.dirtTracker[xCoord][yCoord]) {
-      this.spotsCleaned.set(`[${xCoord}, ${yCoord}]`, true)
+    if (dirtTracker[xCoord] && dirtTracker[xCoord][yCoord]) {
+      spotsCleaned.set(`[${xCoord}, ${yCoord}]`, true)
     }
   }
 
-  this.cleanTheRoom = function (hooverMoves) {
-    this.updateSpotsCleaned(this.hoover.currentPosition)
+  const cleanTheRoom = (hooverMoves) => {
+    updateSpotsCleaned(hoover.currentPosition)
     for (let i = 0; i < hooverMoves.length; i++) {
-      this.hoover.updatePosition(hooverMoves[i]);
-      this.updateSpotsCleaned(this.hoover.currentPosition);
+      hoover.updatePosition(hooverMoves[i]);
+      updateSpotsCleaned(hoover.currentPosition);
     }
-    return this.spotsCleaned;
+    return spotsCleaned;
+  }
+
+  return {
+    spotsCleaned,
+    hoover,
+    hooverMoves,
+    updateSpotsCleaned,
+    cleanTheRoom,
+    dirtTracker,
+    convertDirtPositions,
   }
 }
 
