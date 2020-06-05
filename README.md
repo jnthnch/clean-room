@@ -49,7 +49,7 @@ Example (matching the input above):
 
 ## Instructions
 
-* download this repo onto your computer
+* clone or download this repo onto your computer
 * cd into folder from your terminal
-* to run program, in your terminal, type `node room.js` and hit enter from the root directory
+* to run program, in your terminal, type `node main.js` and hit enter from the root directory
 * to change inputs, edit the `input.txt` file

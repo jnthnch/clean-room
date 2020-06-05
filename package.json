@@ -1,0 +1,22 @@
+{
+  "name": "tray",
+  "version": "1.0.0",
+  "description": "This program navigates a imaginary robotic hoover through an equally imaginary room based on:",
+  "main": "hoover.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jnthnch/clean-room.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jnthnch/clean-room/issues"
+  },
+  "homepage": "https://github.com/jnthnch/clean-room#readme",
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
+}
