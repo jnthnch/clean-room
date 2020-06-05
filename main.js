@@ -23,7 +23,7 @@ function main() {
 
     let length = parseInt(dimensions[0])
     let width = parseInt(dimensions[1])
-    const newRoom = new createRoom(length, width, dirtPositions, hooverStartPosition, hooverDrivingInstructions);
+    let newRoom = new createRoom(length, width, dirtPositions, hooverStartPosition, hooverDrivingInstructions);
     let cleaned = newRoom.cleanTheRoom(newRoom.hooverMoves)
     console.log('final hoover position:', newRoom.hoover.currentPosition.join(' '))
     console.log('cleaned this many dirt patches:', cleaned.size)
