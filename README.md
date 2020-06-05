@@ -51,7 +51,7 @@ Example (matching the input above):
 
 * clone or download this repo onto your computer
 * cd into folder from your terminal
-* `main.js` contains the main logic of the program, intepretation of the `input.txt` file, and creating a `room` object. 
+* `main.js` contains the main logic of the program, intepretation of the `input.txt` file, and the creation of a `room` object. 
 * `room.js` contains room logic for creating a `room` object, and creating a `hoover` vacuum.
 * `hoover.js` hoover vacuum logic for creating a `hoover` object. 
 * to run program, in your terminal, type `node main.js` and hit enter while you are in the root directory
