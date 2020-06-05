@@ -4,7 +4,7 @@ const createRoom = require('./room')
 
 function main() {
   const rl = readline.createInterface({
-    input: fs.createReadStream('input2.txt')
+    input: fs.createReadStream('input.txt')
   });
 
   let textFileLines = [];
@@ -26,7 +26,7 @@ function main() {
     const newRoom = new createRoom(length, width, dirtPositions, hooverStartPosition, hooverDrivingInstructions);
     let cleaned = newRoom.cleanTheRoom(newRoom.hooverMoves)
     console.log('final hoover position:', newRoom.hoover.currentPosition.join(' '))
-    console.log('cleaned this many positions:', cleaned.size)
+    console.log('cleaned this many dirt patches:', cleaned.size)
   })
 }
 
